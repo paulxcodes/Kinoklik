@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_30_184323) do
+ActiveRecord::Schema.define(version: 2021_07_22_173003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,24 @@ ActiveRecord::Schema.define(version: 2021_06_30_184323) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "film_paths", force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["movie_id"], name: "index_film_paths_on_movie_id"
+  end
+
+  create_table "film_roles", force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.bigint "user_id", null: false
+    t.string "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["movie_id"], name: "index_film_roles_on_movie_id"
+    t.index ["user_id"], name: "index_film_roles_on_user_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -73,10 +91,21 @@ ActiveRecord::Schema.define(version: 2021_06_30_184323) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "phone"
+    t.string "subscription"
+    t.boolean "is_filmmaker"
+    t.boolean "wants_newsletter"
+    t.string "language"
+    t.boolean "is_affiliate"
+    t.text "biography"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "film_paths", "movies"
+  add_foreign_key "film_roles", "movies"
+  add_foreign_key "film_roles", "users"
   add_foreign_key "movie_actors", "actors"
   add_foreign_key "movie_actors", "movies"
   add_foreign_key "movie_genres", "genres"
