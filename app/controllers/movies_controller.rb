@@ -38,7 +38,11 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie = Movie.find(params[:id])
-    @movie.destroy
+    if @movie.destroy
+      redirect_to movies_path, notice: "Movie was successfully deleted"
+    else
+      render :edit
+    end
   end
 
 
