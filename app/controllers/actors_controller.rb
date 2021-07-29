@@ -36,4 +36,10 @@ class ActorsController < ApplicationController
     end
   end
 
+private
+
+  def actor_params
+    params.require(:actor).permit(:name, :biography)
+  end
+
 end
