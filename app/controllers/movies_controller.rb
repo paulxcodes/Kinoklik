@@ -1,7 +1,6 @@
 class MoviesController < ApplicationController
 
   def index
-
     @movies = Movie.all
   end
 
@@ -28,7 +27,6 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
-
     if @movie.update(movie_params)
       redirect_to movie_path(@movie), notice: "Movie was successfully updated"
     else
@@ -45,9 +43,7 @@ class MoviesController < ApplicationController
     end
   end
 
-
-private
-
+  private
   def movie_params
     params.require(:movie).permit(:title, :description,:language, :release_date)
   end
