@@ -12,13 +12,13 @@ Actor.delete_all
   new_movie = Movie.create(
     title: Faker::Movie.title,
   )
-  new_movie.each do |movie|
-    5.times do
-  new_actor = Actor.create(
+  puts "Movie #{new_movie.id} was created"
+end
+
+new_actor = Actor.create(
     name: Faker::Name.name ,
     biography: Faker::Lorem.paragraph
     )
-end
-  puts "Movie #{new_movie.id} was created"
+  puts "Actor was created"
 end
 
