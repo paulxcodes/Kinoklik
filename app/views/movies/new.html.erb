@@ -1,9 +1,25 @@
-<div class="container">
-  <%= simple_form_for(@movie) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :language %>
-    <%= f.input :release_date, as: :date %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
+
+ <div class="container my-5">
+  <h1 class="mt-5">Add a new <strong>Movie</strong></h1>
+  <h5 class="mb-4">What is this Movie about?</h5>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card-form">
+        <div class="card-form-display">
+          <%= simple_form_for(@movie) do |f| %>
+            <%= f.input :title, as: :string, placeholder: "What is the Title", label: "What's the name of your Movie?" %>
+            <%= f.input :description, as: :text, placeholder: "Write down a description for your movie", label: "Describe in few expressive words your movie" %>
+            <%= f.input :language, as: :string, placeholder: "", label: 'What is the language of the Movie' %>
+            <%= f.input :image, as: :string, placeholder: "Paste the url of the image of your Movie", label: "Choose a nice image for your Movie" %>
+            <%= f.input :release_date, as: :date %>
+            <%= f.button :submit, class: "btn-container" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="mt-5 text-right"><%= link_to "GO TO YOUR CREATED VERSIONS", movies_path, class: "btn-container" %></div>
+    </div>
+  </div>
+
 </div>
+
