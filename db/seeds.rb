@@ -17,4 +17,3 @@ Movie.delete_all
 end
 
 
-

@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 2021_08_04_144056) do
     t.text "biography"
   end
 
+  create_table "clocks", force: :cascade do |t|
+    t.date "date"
+    t.string "user"
+    t.string "ip"
+    t.string "action"
+    t.text "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "status"
+    t.datetime "time"
+  end
+
   create_table "film_paths", force: :cascade do |t|
     t.bigint "movie_id", null: false
     t.string "type"
@@ -83,6 +95,16 @@ ActiveRecord::Schema.define(version: 2021_08_04_144056) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["movie_id"], name: "index_ratings_on_movie_id"
     t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "group"
+    t.string "key"
+    t.string "value"
+    t.text "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "status"
   end
 
   create_table "users", force: :cascade do |t|
