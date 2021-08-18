@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :actors
   resources :users
   mount Mux::Engine, at: "/mux"
+
+
 end
