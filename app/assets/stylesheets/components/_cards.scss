@@ -1,6 +1,7 @@
 
 .text-headers-style {
   font-family: $headers-font;
+  color: white;
 }
 
 .card-container {
@@ -8,6 +9,7 @@
   background: white;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
   transition: .8s;
+
 }
 
 .card-container img {
@@ -100,12 +102,13 @@ img.card-container-img {
 
 .card-wbody {
   overflow: hidden;
-  background: white;
+  background: purple;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 30px;
   width: 70%;
   margin-left: 30%;
   margin-top: 300px;
+  margin-bottom: 70px;
 }
 
 .card-section {
@@ -115,93 +118,15 @@ img.card-container-img {
   margin: 0;
 }
 
-.my_celines_card {
-  display: flex;
-  // margin: 10px;
-  .card-trip {
-    width: 30%;
-  }
 
-  .bookings_info_card {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    li > * {
-      display: inline-block;
-    }
-    ol {
-      list-style-type: none;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: flex-start;
-      width: 100%;
-    }
-  }
+.card-title {
+  color: white;
 }
 
-.booking-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+.card-text{
+  color: white;
 }
 
-.my-celines-card {
-  // background-color: red;
-  display: flex;
-  margin-top: 10px;
-}
-
-.my-celine-versions-card {
-  .card-container-infos {
-    min-height: 0;
-  }
-}
-
-
-.card-celine-version{
-  // background-color: green;
-  margin: 5px;
-  display: flex;
-  width: 30%;
-}
-
-.booking-container {
-  background-color: white;
-  display: flex;
-  margin: 5px;
-  width: 70%;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
-  transition: .8s;
-  // min-height: 273px;
-  // margin-bottom: 1.5rem !important
-}
-
-.booking-info-cards {
-  // background-color: blue;
-  margin: 5px;
-  // padding: 5px;
-  width: 50%;
-  text-align: center;
-}
-
-.booking-info-card {
-  // background-color: yellow;
-  margin: 5px;
-  padding: 5px;
-  text-align: left;
-  border-left: 2px solid $light-gray;
-}
-
-.btn-container {
-  display: flex;
-  margin: 5px;
-  justify-content: space-around;
-  padding: 5px;
-}
-
-.grey-bar-container {
-  border-left: 1px solid $light-gray;
+.text-headers-style {
+  color: white;
 }
