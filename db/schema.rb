@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_08_18_190148) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_08_18_190148) do
     t.text "biography"
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_actors_on_user_id"
+
   end
 
   create_table "clocks", force: :cascade do |t|
@@ -55,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_08_18_190148) do
     t.datetime "updated_at"
     t.string "status"
     t.datetime "time"
+
   end
 
   create_table "film_paths", force: :cascade do |t|
@@ -150,7 +154,9 @@ ActiveRecord::Schema.define(version: 2021_08_18_190148) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+
   add_foreign_key "actors", "users"
   add_foreign_key "film_paths", "movies"
   add_foreign_key "film_roles", "movies"
