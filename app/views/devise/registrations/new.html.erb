@@ -1,25 +1,43 @@
-<h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<div class="container my-5">
+  <h2><strong>Sign up today!</strong> Join the Kinoklik community.</h2>
+  <h5 class="mb-4">Best Independent Movie Streaming Platform.</h5>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card-form">
+        <img src="https://pentagram-production.imgix.net/b4b983a2-1f6c-41c2-b056-7f6bbf83e941/emo_filmindependent_01_newwebsite.jpg?rect=0%2C456%2C2500%2C1562&w=1500&fit=crop&q=70&fm=jpg&auto=format&h=935&dpr=2" />
+        <div class="card-form-display">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" }%>
+            <%= f.input :avatar, hint: "Copy/Paste the url of a picture for your avatar",required: true, autofocus: true, label: "Add an avatar to your account"%>
+
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password" } %>
+            <% if resource.avatar.attached? %>
+            <% image_tag resource.avatar.variant(resize: "100x100!"), class ="rounded-circle" %>
+            <% else %>
+            <% image_tag gravatar_image(current_user.email, size:100), height:100, width:100, class:"rounded-circle" %>
+            <% end %>
+            <%= f.file_field :avatar %>
+
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", class: "btn btn-outline-dark"%>
+
+        <% end %>
+      </div>
+    </div>
+    <div class="mt-5 text-right"><%= render "devise/shared/links" %></div>
+    </div>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

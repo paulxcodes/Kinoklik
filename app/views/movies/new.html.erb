@@ -1,9 +1,28 @@
-<div class="container">
-  <%= simple_form_for(@movie) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :language %>
-    <%= f.input :release_date, as: :date %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
+
+
+<div class="container my-5">
+  <h1 class="mt-5">Add a new <strong>Movie</strong></h1>
+  <h5 class="mb-4">Upload your new Masterpiece</h5>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card-form">
+        <div class="card-form-display">
+          <%= simple_form_for(@movie) do |f| %>
+            <%= f.input :title, as: :string, placeholder: "Movie Title", label: "What's the name of your Movie?" %>
+            <%= f.input :description, as: :text, placeholder: "Write down a description of your Movie", label: "Describe in few expressive words your Movie" %>
+            <%= f.input :language, as: :string, placeholder: "Language", label: 'What is the language of the Movie?' %>
+            <%= f.input :release_date, as: :date, placeholder: "Release Date", label: "What is the release date?" %>
+            <%= f.input :image, as: :string, placeholder: "Paste the url of the image of your Movie", label: "Choose a cover for your Movie" %>
+            <div class="btn-container">
+            <%= f.submit "Create", class: "btn btn-outline-dark"%>
+            </div>
+          <% end %>
+        </div>
+      <img src="https://pentagram-production.imgix.net/b4b983a2-1f6c-41c2-b056-7f6bbf83e941/emo_filmindependent_01_newwebsite.jpg?rect=0%2C456%2C2500%2C1562&w=1500&fit=crop&q=70&fm=jpg&auto=format&h=935&dpr=2" />
+      </div>
+      <div class="mt-5 text-right"><%= link_to "GO TO ALL MOVIES", movies_path, class: "btn btn-light active" %></div>
+    </div>
+  </div>
+
 </div>
