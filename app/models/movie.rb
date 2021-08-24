@@ -6,7 +6,6 @@ class Movie < ApplicationRecord
   has_many :actors
   has_one :user_id
 
-
   validates :title, presence: true
   validates :description, presence: true
   validates :language, presence: true

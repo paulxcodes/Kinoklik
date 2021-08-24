@@ -6,7 +6,4 @@ Rails.application.routes.draw do
   resources :movies
   resources :actors
   resources :users
-  mount Mux::Engine, at: "/mux"
-
-
 end
