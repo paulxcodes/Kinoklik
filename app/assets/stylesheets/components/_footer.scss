@@ -1,9 +1,9 @@
 .footer {
-  background: white;
+  background:#4a3759;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70px;
+  height: 280px;
   padding: 0px 60px;
   color: rgba(0,0,0,0.4);
   overflow: hidden;
@@ -17,7 +17,7 @@
 }
 
 .footer-links a {
-  color: grey;
+  color: white;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
@@ -28,10 +28,25 @@
   opacity: 1;
 }
 
-.footer .fa-heart {
-  color: #D23333;
-}
-
 footer {
   height: 70px;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: -2rem;
+}
+
+h5 {
+  color: white;
+}
+
+li {
+  color: white;
+  opacity: 0.50;
+  padding-top: 1rem;
+}
+
+.logo {
+  height: 150px;
 }
