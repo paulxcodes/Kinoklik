@@ -8,7 +8,6 @@
   background: white;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
   transition: .8s;
-
 }
 
 .card-container img {
@@ -82,10 +81,12 @@ img.card-container-img {
 .card-form {
   overflow: hidden;
   height: 100%;
-  background: white;
+  background: black;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
+  width: 30%;
+  margin: 0 auto;
 }
 
 .card-form img {
@@ -97,6 +98,7 @@ img.card-container-img {
 .card-form .card-form-display {
   padding: 45px;
   width: 100%;
+  
 }
 
 .card-wbody {
@@ -127,5 +129,57 @@ img.card-container-img {
 }
 
 .text-headers-style {
+  color: white;
+}
+
+abbr {
+  visibility: hidden;
+}
+
+.signup {
+  background-color: #591398;
+  margin-left: 6rem;
+  margin-bottom: 1rem;
+}
+
+.user-type {
+  background-color: #591398;
+  margin-left: 1.5rem;
+  color:white;
+}
+
+a {
+  text-decoration: none;
+  color: #591398;
+}
+
+.tos{
+  display: flex;
+  margin-top: 1rem;
+}
+
+
+
+p {
+  margin-left: 0.75rem;
+  color: white;
+  font-size: 13px;
+}
+
+.login-link {
+  margin-left: 2.5rem;
+}
+
+h3 {
+  color: white;
+}
+
+.form-control {
+  background: black;
+  color: white;
+  border: 0.5px solid gray;
+}
+
+label {
   color: white;
 }
