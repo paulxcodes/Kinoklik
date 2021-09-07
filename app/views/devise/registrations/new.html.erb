@@ -1,32 +1,48 @@
 <div class="container my-5">
-  <h2><strong>Sign up today!</strong> Join the Kinoklik community.</h2>
-  <h5 class="mb-4">Best Independent Movie Streaming Platform.</h5>
   <div class="row">
     <div class="col-md-12">
       <div class="card-form">
-        <img src="https://pentagram-production.imgix.net/b4b983a2-1f6c-41c2-b056-7f6bbf83e941/emo_filmindependent_01_newwebsite.jpg?rect=0%2C456%2C2500%2C1562&w=1500&fit=crop&q=70&fm=jpg&auto=format&h=935&dpr=2" />
         <div class="card-form-display">
+          <h3 class="title"> Welcome to Kinoklik</h3>
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= f.input :email,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "email" }%>
-            <%= f.input :password,
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.file_field :avatar %>
-
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn user-type">User</button>
+              <button type="button" class="btn user-type">Filmmaker</button>
+              <button type="button" class="btn user-type">Actor</button>
+            </div>
+            <div class="form-input">
+              <%= f.input :name,
+                          required: true,
+                          autofocus: true,
+                          placeholder: "Enter your name",
+                          input_html: { autocomplete: "name" }%>
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          placeholder: "Enter email address",
+                          input_html: { autocomplete: "email" }%>
+              <%= f.input :password,
+                          required: true,
+                          placeholder: "Enter password",
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                          required: true,
+                          placeholder: "Confirm your password",
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.file_field :avatar, class: "upload-img", required: true %>
+            </div>
+            <div class="tos">
+              <input class="accept_tos" name="tos" type="checkbox" value="yes" />
+              <p class="desc">By creating an account you agree to our Privacy policy, Terms of use.
+            </div
+            
+            <div class="form-actions">
+                <div class="text-center">
+                  <%= f.button :submit, "SIGN UP", class: "btn rounded signup"%>
+                  <% end %>
+                </div>
+                <p class='login-link'>Already have an account? <%= render "devise/shared/links" %></p>
+            </div>
         </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up", class: "btn btn-outline-dark"%>
-        <% end %>
-      </div>
-    </div>
-    <div class="mt-5 text-right"><%= render "devise/shared/links" %></div>
-    </div>
   </div>
 </div>

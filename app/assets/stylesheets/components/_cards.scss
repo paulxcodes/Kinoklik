@@ -8,7 +8,6 @@
   background: white;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
   transition: .8s;
-
 }
 
 .card-container img {
@@ -82,10 +81,18 @@ img.card-container-img {
 .card-form {
   overflow: hidden;
   height: 100%;
-  background: white;
+  background: black;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.card-form-2 {
+  width: 50%;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .card-form img {
@@ -97,6 +104,7 @@ img.card-container-img {
 .card-form .card-form-display {
   padding: 45px;
   width: 100%;
+  
 }
 
 .card-wbody {
