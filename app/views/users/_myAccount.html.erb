@@ -1,0 +1,22 @@
+<article class="tab-pane fade show active" role="tabpanel" aria-labelledby="lorem-left-tab" id="account">
+    
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="card-form-2">
+                <div class="text-center">
+                    <div class="card-form-display">
+                    <%= simple_form_for(@user) do |f| %>
+                            <%= f.input :name, placeholder: "Enter your name"%>
+                            <%= f.input :email, placeholder: "Enter email address"%>
+                            <%= f.input :password, placeholder: "Enter password" %>
+                            <%= f.input :phone, placeholder: "Enter phone number" %>
+                        <%= f.submit "EDIT", class: "btn btn-large edit-button"%>
+                    <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

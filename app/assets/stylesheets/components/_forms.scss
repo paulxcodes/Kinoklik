@@ -5,6 +5,7 @@ abbr {
   .signup {
     background-color: #591398;
     margin-bottom: 1rem;
+    color:white;
   }
   
   .user-type {
@@ -23,9 +24,7 @@ abbr {
     margin-top: 1rem;
   }
   
-  
-  
-  p {
+  .desc{
     margin-left: 0.75rem;
     color: white;
     font-size: 13px;
@@ -33,9 +32,11 @@ abbr {
   
   .login-link {
     margin-left: 2.5rem;
+    color: white;
+    font-size: 13px;
   }
   
-  h3 {
+  .title {
     color: white;
   }
   
@@ -45,10 +46,10 @@ abbr {
     border: 0.5px solid gray;
   }
   
-  label {
+  .form-input{
     color: white;
   }
-  
+
   .log-in {
     background-color: #591398;
     color: white;
@@ -65,4 +66,10 @@ abbr {
     color: white;
     margin-bottom: 2rem;
   }
+
+.upload-img {
+  color:white;
+  width: 80%;
+  margin-top: 1rem;
+}
 

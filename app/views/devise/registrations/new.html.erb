@@ -3,41 +3,42 @@
     <div class="col-md-12">
       <div class="card-form">
         <div class="card-form-display">
-          <h3> Welcome to Kinoklik</h3>
+          <h3 class="title"> Welcome to Kinoklik</h3>
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <div class="btn-group" role="group" aria-label="Basic example">
               <button type="button" class="btn user-type">User</button>
               <button type="button" class="btn user-type">Filmmaker</button>
               <button type="button" class="btn user-type">Actor</button>
             </div>
-            <%= f.input :name,
-                        required: true,
-                        autofocus: true,
-                        placeholder: "Enter your name",
-                        class: "form-input",
-                        input_html: { autocomplete: "name" }%>
-            <%= f.input :email,
-                        required: true,
-                        autofocus: true,
-                        placeholder: "Enter email address",
-                        input_html: { autocomplete: "email" }%>
-            <%= f.input :password,
-                        required: true,
-                        placeholder: "Enter password",
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: true,
-                        placeholder: "Confirm your password",
-                        input_html: { autocomplete: "new-password" } %>
-            
+            <div class="form-input">
+              <%= f.input :name,
+                          required: true,
+                          autofocus: true,
+                          placeholder: "Enter your name",
+                          input_html: { autocomplete: "name" }%>
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          placeholder: "Enter email address",
+                          input_html: { autocomplete: "email" }%>
+              <%= f.input :password,
+                          required: true,
+                          placeholder: "Enter password",
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                          required: true,
+                          placeholder: "Confirm your password",
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.file_field :avatar, class: "upload-img", required: true %>
+            </div>
             <div class="tos">
               <input class="accept_tos" name="tos" type="checkbox" value="yes" />
-              <p>By creating an account you agree to our Privacy policy, Terms of use.
+              <p class="desc">By creating an account you agree to our Privacy policy, Terms of use.
             </div
             
             <div class="form-actions">
                 <div class="text-center">
-                  <%= f.button :submit, "SIGN UP", class: "btn btn-secondary rounded signup"%>
+                  <%= f.button :submit, "SIGN UP", class: "btn rounded signup"%>
                   <% end %>
                 </div>
                 <p class='login-link'>Already have an account? <%= render "devise/shared/links" %></p>

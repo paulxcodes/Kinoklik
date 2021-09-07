@@ -15,4 +15,6 @@ provide(:title, "Edit user")
     <%= f.input :is_filmmaker, as: :boolean, checked_value: true, unchecked_value: false %>
     <%= f.submit "Save changes", class: "btn btn-large btn-primary"%>
     <% end %>
+
+    <%= link_to "Back to Profile", user_path(@user)%>
   </div>

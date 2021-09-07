@@ -1,0 +1,104 @@
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
+
+
+// Magic numbers
+$magic-horizontal-value: 3.2rem;
+$magic-vertical-value: 5rem;
+$sideways-tabs-height: 1rem;
+
+// Placeholders
+%sideways-tabs {
+  margin-top: $magic-vertical-value;
+  border: none;
+  position: relative;
+  margin-bottom: 0;
+}
+
+// Used in vertical tab configuration (wide view)
+%flex-tabs {
+  height: 100%;
+  flex-direction: column;
+}
+
+// Mixins (can be reused inside @media scope)
+@mixin fixed-tab($size: $fixed-tab-size) {
+  width: $size;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Used in horizontal tab configuration (narrow views)
+@mixin flex-tabs-h {
+  flex-direction: row;
+  border-right: none;
+  border-left: none;
+  min-width: 100%;
+}
+
+// Workaround for Safari issue :/
+// Bootstrap 5 uses <button type="button"> for tabs, but
+// <button> doesn't work for vertical orientation, and applying type="button"
+// to another element (e.g. <div>) will render it in Safari as "early 21st century style" button,
+// with gray gradient, border, etc. So we don't set type="button", but then we need
+// to change the cursor to indicate that the tab is "clickable"
+.tab-clickable {
+  cursor: pointer;
+}
+
+// Left vertical tabs
+.left-tabs.nav-tabs {
+  @extend %flex-tabs;
+  border-right: $nav-tabs-border-width solid $nav-tabs-border-color;
+  border-bottom: none;
+}
+
+.left-tabs .nav-link {
+  border-top-left-radius: $nav-tabs-border-radius;
+  border-bottom-left-radius: $nav-tabs-border-radius;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  margin-right: -$nav-tabs-border-width;
+}
+
+.left-tabs .nav-link:hover {
+  border-right: $nav-tabs-border-width solid transparent;
+}
+
+.left-tabs .nav-link.active {
+  border-top: $nav-tabs-border-width solid $nav-tabs-border-color;
+  border-right: $nav-tabs-border-width solid transparent;
+  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+  border-left: $nav-tabs-border-width solid $nav-tabs-border-color;
+}
+
+.left-panel{
+  background-color: #591398;
+  color: white;
+  height: 100%;
+}
+
+.left-heading{
+  margin-left: 5rem;
+}
+
+.acc-name {
+  padding-top: 2rem;
+}
+
+.right-panel{
+  background-color: black;
+  height: 50%;
+}
+
+.form-box{
+  width: 50px;
+}
+
+.edit-button{
+  background-color: #591398;
+  color: white;
+  margin-top: 4rem;
+}
