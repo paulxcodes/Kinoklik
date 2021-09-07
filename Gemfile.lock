@@ -116,6 +116,8 @@ GEM
     execjs (2.7.0)
     faker (2.18.0)
       i18n (>= 1.6, < 2)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     ffi (1.15.3)
     ffi (1.15.3-x64-mingw32)
     font-awesome-sass (5.15.1)
@@ -287,6 +289,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker
+  fast_jsonapi
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)
