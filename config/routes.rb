@@ -1,12 +1,30 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "api/v2/graphql"
+  end
 
-  resources :movies
-  resources :actors
-  resources :users
-  mount Mux::Engine, at: "/mux"
+  root 'pages#home'
 
+  namespace :api do
+    namespace :v1 do
+      resources :movies, param: :slug
+      resources :actors, only: %i[create destroy]
+      resources :auth, only: %i[create] do
+        collection do
+          post 'password/forgot', to: 'auth#forgot_password'
+          post 'password/reset', to: 'auth#reset_password'
+          get 'me', to: 'auth#logged_in'
+          delete 'logout', to: 'auth#logout'
+        end
+      end
 
+      resources :registrations, only: %i[create]
+    end
+
+    namespace :v2 do
+      match "graphql", to: "graphql#execute", via: %i[get post delete]
+    end
+  end
+
+  get '*path', to: 'pages#home', via: :all
 end

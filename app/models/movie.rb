@@ -1,14 +1,15 @@
 class Movie < ApplicationRecord
-
-
-  has_many :movie_genres
-  has_one :movie_id
   has_many :actors
-  has_one :user_id
+  attr_accessor :slug
 
-  validates :title, presence: true
-  validates :description, presence: true
-  validates :language, presence: true
-  validates :release_date, presence: true
+
+  validates :title, presence: true, length: { maximum: 255 }
+
+  # Slugify movie name into a url safe param before create
+  # Ex: 'Star Wars'.parameterize => 'star-wars'
+    before_create -> (airline) do
+    airline.slug = airline.name.parameterize
+  end
+
 
 end
