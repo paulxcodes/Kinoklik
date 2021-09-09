@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "api/v2/graphql"
   end
 
-  root 'pages#home'
+  root 'pages#index'
 
   namespace :api do
     namespace :v1 do
@@ -26,5 +26,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get '*path', to: 'pages#home', via: :all
+  get '*path', to: 'pages#index', via: :all
 end

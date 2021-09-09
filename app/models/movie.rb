@@ -7,8 +7,8 @@ class Movie < ApplicationRecord
 
   # Slugify movie name into a url safe param before create
   # Ex: 'Star Wars'.parameterize => 'star-wars'
-    before_create -> (airline) do
-    airline.slug = airline.name.parameterize
+    before_create -> (movie) do
+    movie.slug = movie.title.parameterize
   end
 
 

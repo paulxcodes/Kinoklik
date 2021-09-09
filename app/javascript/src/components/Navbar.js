@@ -7,7 +7,7 @@ const Wrapper = styled.nav`
   width: 100%;
   height: 65px;
   line-height: 65px;
-  background-color: black;
+  background-color: #712CB0;
   color: white;
   margin-left: auto;
   margin-right: auto;
@@ -74,12 +74,12 @@ const Navbar = (props) => {
           <Container>
             <Nav>
               <Left>
-                <Logo><Link to="/">OpenFlights</Link></Logo>
+                <Logo><Link to="/">KinoKlik</Link></Logo>
               </Left>
               <Right>
                 <Menu>
-                    { 
-                    isAuth ? 
+                    {
+                    isAuth ?
                     <Fragment>
                       <li><Link to="/">Home</Link></li>
                       <li><a onClick={logout}>Log Out</a></li>
@@ -91,7 +91,7 @@ const Navbar = (props) => {
                   }
                 </Menu>
               </Right>
-            </Nav>  
+            </Nav>
           </Container>
         </Wrapper>
       )}
