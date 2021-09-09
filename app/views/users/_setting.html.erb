@@ -1,5 +1,23 @@
-<article class="tab-pane fade" role="tabpanel" aria-labelledby="setting-left-tab" id="setting">
-            <div>
-            <%= link_to "DELETE MY ACCOUNT", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete #{@user.email}?" }, class:"btn btn-danger" %>
+<article class="tab-pane fade" role="tabpanel" aria-labelledby="setting-left-tab" id="setting">  
+    <div class="container text-center top-space">
+        <div>
+            <p class="news">Send me newsletter by email</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Lanuage
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">English</a>
+                <a class="dropdown-item" href="#">French</a>
             </div>
-            </article>
+        </div>
+        <div>
+            <%= link_to "DELETE MY ACCOUNT", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete #{@user.email}?" }, class:"btn btn-danger del-acc" %>
+        </div>
+    </div>
+</article>
