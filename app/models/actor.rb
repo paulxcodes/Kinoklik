@@ -1,10 +1,13 @@
 class Actor < ApplicationRecord
-
-  has_one :user
-  has_one :actor_id
+  belongs_to :movie
+  belongs_to :user
   has_many :movies
 
-  validates :name, presence: true
-  validates :biography, presence: true
+  # Recalculate the average score for a parent airline
+  # whenever a review is created/updated/destroyed
 
+
+  def graphql_json_response
+    as_json.merge(message: 'success', error: nil, code: 200)
+  end
 end
