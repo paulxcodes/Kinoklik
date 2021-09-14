@@ -1,48 +1,48 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "KinoKlik", root_path, { class: "navbar-brand text-headers-style" } %>
+  <%= link_to image_tag('/assets/logo.png', class:"navbar-logo"), root_path, { class: "navbar-brand text-headers-style" } %>
 <!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active">
-          <%= link_to "All Movies", movies_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active">
-        <%= link_to "Profile", user_path(current_user.id), class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <% if user_signed_in? %>
-          <% current_user.id %>
-          <% end %>
-          
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
 
-        </li>
+        <div class="search__wrapper">
+          <input type="text" name="" placeholder="Search for..." class="search__field">
+          <button type="submit" class="fa fa-search search__icon"></button>
+        </div>
+        
         
         <li class="nav-item dropdown">
           <% if current_user.avatar.attached? %>
-          <%= image_tag current_user.avatar , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= link_to image_tag('#{current_user.avatar}', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false), user_path(current_user.id), { class: "navbar-brand text-headers-style" } %>
           <% else %>
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= link_to image_tag('https://kitt.lewagon.com/placeholder/users/ssaunier', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false), user_path(current_user.id), { class: "navbar-brand text-headers-style" } %>
           <%end %>
           
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "View All Movies", movies_path, class: "dropdown-item" %>
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :get, class: "dropdown-item" %>
           </div>
         </li>
-      <% else %>
+
         <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          <% if user_signed_in? %>
+          <% current_user.id %>
+          <% end %>
+          <%= button_to "Sign Out", destroy_user_session_path, :method => "get", class: "btn sign-in" %>
+        </li>
+
+      <% else %>
+        <div class="search__wrapper">
+          <input type="text" name="" placeholder="Search for..." class="search__field">
+          <button type="submit" class="fa fa-search search__icon"></button>
+        </div>
+        <li class="nav-item">
+          <%= button_to "Sign In", new_user_session_path, :method => "get", class: "btn sign-in" %>
         </li>
         <li class="nav-item">
-
-          <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+          <%= button_to "Sign Up", new_user_registration_path, :method => "get", class: "btn sign-up" %>
         </li>
       <% end %>
     </ul>
