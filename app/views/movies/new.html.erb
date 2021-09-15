@@ -11,7 +11,7 @@
             <%= f.input :description, as: :text, placeholder: "Write down a description of your Movie", label: "Describe in few expressive words your Movie" %>
             <%= f.input :language, as: :string, placeholder: "Language", label: 'What is the language of the Movie?' %>
             <%= f.input :release_date, as: :date, placeholder: "Release Date", label: "What is the release date?" %>
-            <%= f.input :image, as: :string, placeholder: "Paste the url of the image of your Movie", label: "Choose a cover for your Movie" %>
+            <%= f.file_field :movie_image, class: "movie-image", required: true %>
             <div class="btn-container">
             <%= f.submit "Create", class: "btn btn-outline-dark"%>
             </div>
